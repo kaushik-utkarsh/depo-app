@@ -2,11 +2,7 @@
   text-align: center;
 }
 
-.animated-row{
-  transition: transform 5s ease-in-out;
-}
-
-table tr:nth-child(even){
+table tr:nth-child(even) {
   background-color: antiquewhite;
 }
 
@@ -15,19 +11,18 @@ table th {
   color: #282c34;
 }
 
-.highlited-row{
+.highlited-row {
   animation: highlight 1s ease-in-out;
 }
 
-@keyframes highlight{
+@keyframes highlight {
   0% {
-background-color: blue;
+    background-color: blue;
   }
   50% {
     background-color: rebeccapurple;
   }
-  100%{
+  100% {
     background-color: yellow;
   }
 }
-

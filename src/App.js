@@ -20,6 +20,7 @@ const initialOrganisationData = [
 export default function App() {
   const [organisations, setOrganisations] = useState(initialOrganisationData);
   console.log(organisations, "organisations");
+  const [highlight, setHighlight] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,11 +35,15 @@ export default function App() {
            return b.marketCap - a.marketCap
         });
 
+        const randomRowIndex = Math.floor(Math.random() * updatedOrganisation.length);
+        setHighlight(randomRowIndex);
+
         return updatedOrganisation
 
 
       })
     }, 5000)
+    return () => clearInterval(interval);
 
   }, [])
 
@@ -60,7 +65,7 @@ export default function App() {
         </thead>
         <tbody>
           {organisations.map((org, idx) => {
-            return (<tr className="animated-row" key={idx}>
+            return (<tr className={highlight === idx ? "highlited-row" : ""} key={idx}>
               <td>
                 {org.name}
               </td>
